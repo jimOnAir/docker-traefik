@@ -1,0 +1,81 @@
+file:
+  /etc/nginx/conf.d/default.conf:
+    exists: true
+    mode: "0644"
+    size: 219
+    owner: root
+    group: root
+    filetype: file
+    contains: []
+  /etc/nginx/nginx.conf:
+    exists: true
+    contains: []
+  /init:
+    exists: true
+    mode: "0755"
+    size: 389
+    owner: root
+    group: root
+    filetype: file
+    contains: []
+  /root/.gnupg/dirmngr.conf:
+    exists: true
+    contains:
+    - disable-ipv6
+  /usr/local/bin/traefik:
+    exists: true
+    mode: "0755"
+    owner: root
+    group: root
+    filetype: file
+    contains: []
+  /var/www/html/index.html:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    contains: []
+  /var/www/html/robots.txt:
+    exists: true
+    mode: "0644"
+    size: 36
+    owner: root
+    group: root
+    filetype: file
+    contains: []
+package:
+  apt-transport-https:
+    installed: true
+  bash:
+    installed: true
+  ca-certificates:
+    installed: true
+  curl:
+    installed: true
+  dateutils:
+    installed: true
+  dirmngr:
+    installed: true
+  gnupg:
+    installed: true
+  nginx:
+    installed: true
+  passwd:
+    installed: true
+  procps:
+    installed: true
+command:
+  traefik version:
+    exit-status: 0
+    stdout:
+    - 'Version:      v1.7.30'
+    - 'Codename:     maroilles'
+    - 'Go version:   go1.16.3'
+    - 'Built:        2021-04-08_02:50:29PM'
+    - 'OS/Arch:      linux/amd64'
+    stderr: []
+    timeout: 10000
+process:
+  nginx:
+    running: true

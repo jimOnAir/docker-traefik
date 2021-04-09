@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bash
+set -Eeo pipefail
+
+if [ "$DEBUG_MODE" = "TRUE" ] || [ "$DEBUG_MODE" = "true" ]; then
+    set -x
+fi
+
+service nginx start

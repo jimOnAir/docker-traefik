@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  traefik-buster-1:
+    image: jimonair/traefik:v1.7.30-buster
+    build:
+      context: ./1.x-buster
+      args:
+        - DEBIAN_VERSION=buster
+        - TRAEFIK_VERSION=v1.7.30
+        - S6_VERSION=v2.2.0.3
+        # - APT_PROXY=http://172.17.0.1:3142
+
+  traefik-buster-2:
+    image: jimonair/traefik:v2.4.8-buster
+    build:
+      context: ./2.x-buster
+      args:
+        - DEBIAN_VERSION=buster
+        - TRAEFIK_VERSION=v2.4.8
+        - S6_VERSION=v2.2.0.3
+        # - APT_PROXY=http://172.17.0.1:3142
